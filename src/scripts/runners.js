@@ -169,6 +169,7 @@ mapPath() {
       }
       if (!node) {
         this.done();
+        alert("NOT PATH Found")
         return;
       }
 
@@ -189,7 +190,7 @@ mapPath() {
       });
     } else {
       this.done();
-      this.mapPath();
+      alert("NOT PATH Found")
       return;
     }
   }
@@ -242,6 +243,7 @@ class IDDFSRunner extends NodeSetter {
       }
       if (!node) {
         this.done();
+        alert("NOT PATH Found")
         return;
       }
 
@@ -262,7 +264,7 @@ class IDDFSRunner extends NodeSetter {
       });
     } else {
       this.done();
-      this.mapPath();
+      alert("NOT PATH Found")
       return;
     }
   }
