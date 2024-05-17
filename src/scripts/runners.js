@@ -135,16 +135,8 @@ class DfsRunner extends NodeSetter {
     this.parent = null;
   }
 
-  dfs(){
-    this.depth += 1;
-    this.deepsearch();
-  }
 
-  deepsearch(){
-    this.maxdepth = this.depth;
-  }
-
-  mapPath() {
+mapPath() {
     this.path = [];
     let node = this.endNode;
     while (node.id != this.startNode.id) {
@@ -172,7 +164,6 @@ class DfsRunner extends NodeSetter {
   perFrame() {
     if (this.stack.size > 0) {
       let node = this.stack.pop();
-      this.dfs();
       while (node && this.visitedNodes.has(node)) {
         node = this.stack.pop();
       }
@@ -187,7 +178,6 @@ class DfsRunner extends NodeSetter {
         return;
       }
 
-      this.deepsearch();
       node != this.startNode ? node.setAsTraversed() : null;
       this.visitedNodes.add(node);
 
@@ -212,7 +202,7 @@ class DfsRunner extends NodeSetter {
 
 class IDDFSRunner extends NodeSetter {
   constructor() {
-    super("Iterative Deepening Depth First Search");
+    super("iterative Deeping Depth First Search");
     this.stack = null;
     this.path = null;
     this.visitedNodes = null;
@@ -277,13 +267,54 @@ class IDDFSRunner extends NodeSetter {
     }
   }
 
+  dfsrecursion(){
+    for (let i = 1; i < 1000; i++) {
+      this.dfsimplemention(i);
+      if(this.path){
+        this.done();
+        break;
+      } else {
+        this.firstFrame();
+      }
+    }
+  }
+
+  dfsimplemention(depth) {
+    if (this.stack.size > 0) {
+      let node = this.stack.pop();
+      while (node && this.visitedNodes.has(node)) {
+        node = this.stack.pop();
+      }
+      if (!node) {
+        return;
+      }
+
+      if (node == this.endNode) {
+        this.mapPath();
+        return;
+      }
+
+      node != this.startNode ? node.setAsTraversed() : null;
+      this.visitedNodes.add(node);
+
+      if (this.stack.size < depth) {
+        node.adjacents.forEach(r => {
+          if (!this.visitedNodes.has(r)) {
+            this.parent.set(r.id, node);
+            this.stack.push(r);
+          }
+        });
+      }
+    } else {
+      return;
+    }
+  }
+
   fixedFrames() {
     const n = this.path.pop();
     n.setAsPath();
   }
 }
-
-
 
 // Breadth First Search
 class BfsRunner extends NodeSetter {
@@ -350,7 +381,7 @@ class BfsRunner extends NodeSetter {
       });
     } else {
       this.done();
-      this.mapPath();
+      alert("NO PATH Found")
       return;
     }
   }
@@ -360,8 +391,6 @@ class BfsRunner extends NodeSetter {
     n.setAsPath();
   }
 }
-
-
 
 // Bi-Directional Search (BFS)
 class BdsRunnerBFS extends NodeSetter {
@@ -515,6 +544,7 @@ class BdsRunnerDFS extends NodeSetter {
       }
       if (!enode || !snode) {
         this.done();
+        alert("NO PATH Found")
         return;
       }
 
@@ -614,6 +644,7 @@ class DijkstraRunner extends NodeSetter {
     min_node ? min_node.changeText(min_dist) : null;
     if (!min_node) {
       this.done();
+      alert("NO PATH Found")
       return;
     }
     if (min_node == this.endNode) {
@@ -790,6 +821,7 @@ class AstarRunner extends NodeSetter {
       });
     } else {
       this.done();
+      alert("NO PATH Found")
       return;
     }
   }
@@ -864,6 +896,7 @@ class UnknownRunner extends NodeSetter {
       });
     } else {
       this.done();
+      alert("NO PATH Found")
       return;
     }
   }

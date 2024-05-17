@@ -326,6 +326,20 @@ class Grid {
     }
 
     this.setRunner(states.DEFAULT_RUNNER_CODE);
+    this.drawborder();
+  }
+
+  drawborder(){
+    const sideLength = this.boxSize || this.getBoxSideLength();
+    for (let r = 0; r < this.graph.rowCount; r++) {
+      for (let c = 0; c < this.graph.columnCount; c++) {
+        const node = this.graph.nodes[r][c];
+        if(r == 0 || r == this.graph.rowCount - 1 ||
+           c == 0 || c == this.graph.columnCount - 1 ) {
+            this.setBlock(r, c);
+          }
+      }
+    }
   }
 
   setRunnerNodes() {

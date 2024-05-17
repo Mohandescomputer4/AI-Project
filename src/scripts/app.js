@@ -26,7 +26,6 @@ function processGrid(rowCount, columnCount, width, height, boxSize) {
     states.visitedNodes.text(
       `${states.Context.ActiveGrid.runner.visitedNodes.size}`
     );
-    console.log(states.Context.ActiveGrid);
     states.nextStepBtn.hide();
   };
   states.algoNameDisplay.text(states.Context.ActiveGrid.runner.name);
@@ -84,18 +83,22 @@ function init() {
       }
       setTimeout(() => {
         {
-          let random_col = Math.round(Math.random() * cols);
-          let random_row = Math.round(Math.random() * rows);
+          let random_col = Math.round(Math.random() * (cols-2)) + 1;
+          let random_row = Math.round(Math.random() * (rows-2)) + 1;
           grid.__start_node = grid.getBox(random_row, random_col)
+          grid.__start_node.setAsClear();
           grid.setStart();
         }
         {
-          let random_col = Math.round(Math.random() * cols);
-          let random_row = Math.round(Math.random() * rows);
+          let random_col = Math.round(Math.random() * (cols-2)) + 1 ;
+          let random_row = Math.round(Math.random() * (rows-2)) + 1 ;
           grid.__end_node = grid.getBox(random_row, random_col)
+          grid.__end_node.setAsClear();
           grid.setEnd();
         }
-      }, sec);
+      }, sec+100);
+
+      grid.drawborder();
 
 
   });
