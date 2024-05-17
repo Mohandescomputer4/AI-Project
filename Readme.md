@@ -1,9 +1,9 @@
-# PathViz - Graph Path Visualizer
-# PATH FINDING VISUALIZER
+### PathViz - Graph Path Visualizer
+### PATH FINDING VISUALIZER
 
 An easy to use Interactive Graph Path visualizer with batteries included to implement your own Algorithm Visualization.
 
-## Features
+### Features
 
 1. Interactive with Touch/Pen Input supported
 2. Fully optimized for low-end Mobiles and Tablet devices.
@@ -13,10 +13,6 @@ An easy to use Interactive Graph Path visualizer with batteries included to impl
 6. Fast, Medium, Slow and Step Wise execution for better understanding of Algorithm.
 7. Customizable Grid system (Colors, Execution Speed, Pause, Resume, Stop)
 8. Some of Maze Generation Algorithms included (more coming soon)
-
-### Note
-
-_Use Latest Chrome/ Chromium Browsers/ Safari (mobile/ Tablets/ Desktop)_
 
 ### Implemented Path Finding Algorithms
 
