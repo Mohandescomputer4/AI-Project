@@ -3,20 +3,6 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="An easy to use Interactive Graph Path
-    visualizer"
-    />
-    <meta
-      name="keywords"
-      content="Path, Visualizer, Pathfinding, PathFinder, Algorithm, graph, GraphAlgorithm,"
-    />
-    <meta name="author" content="Raj Singh" />
     <link rel="shortcut icon" href="src/assets/logo.png" type="image/x-icon" />
 
     <!-- font awasome -->
@@ -34,7 +20,7 @@
     />
     <link rel="stylesheet" href="src/style/css/main.css" />
 
-    <title>AlogViz - An easy to use Interactive Graph Path visualizer</title>
+    <title>Piscifelis - An AI Ptoject which Find Path</title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165471746-1"></script>
 <script>
@@ -51,10 +37,10 @@
     <section id="home">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0 sticky-top">
         <a class="navbar-brand d-flex text-white">
-          PathViz &nbsp;
+          Piscifelis &nbsp;
           <div class="d-none action-panel d-lg-none ">
             <button class="btn btn-warning btn-sm start-stop-btn">
-              Visualize
+              Show
             </button>
             <button class="btn btn-light btn-sm next-step">
               <i class="fa fa-step-forward"></i>
@@ -123,12 +109,12 @@
                 </li>
                 <li>
                   <a class="dropdown-item algo-selection" data-algo="iddfs"
-                    >Itterative Depth First Search (IDDFS)</a
+                    >Iterative Depth First Search (IDDFS)</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item algo-selection" data-algo="dijkstra"
-                    >Dijkstra's Algorithm (A* with h=0)</a
+                    >Dijkstra's Algorithm</a
                   >
                 </li>
                 <li class="dropdown-submenu">
@@ -192,7 +178,7 @@
                 role="button"
                 data-toggle="dropdown"
               >
-                <i class="fa fa-cog"></i> Settings
+                <i class="fa fa-cog"></i> setting
               </a>
               <div class="dropdown-menu">
                 <!-- rows input -->
@@ -349,7 +335,7 @@
                 <span
                   id="selected-algo-name"
                   data-toggle="tooltip"
-                  data-title="Dijkstra's Algorithm"
+                  data-title="Selected Algorithm"
                   >...</span
                 >&nbsp;
                 <!-- <b data-toggle="tooltip" title="Traversing Speed">Speed: </b>
@@ -362,7 +348,7 @@
                 <span id="runner-duration">...</span>&nbsp;
                 <b
                   data-toggle="tooltip"
-                  title="Time to find the path in ms (Note: inclusive of frame delays)"
+                  title="The Number of Node which Algorithm Visited"
                   >visited nodes:
                 </b>
                 <span id="visited-nodes">...</span>&nbsp;
