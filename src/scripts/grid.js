@@ -301,8 +301,8 @@ class Grid {
     this.runner ? this.runner.stop() : null;
 
     setTimeout(() => {
-      for (let r = 0; r < this.graph.rowCount; r++) {
-        for (let c = 0; c < this.graph.columnCount; c++) {
+      for (let r = 1 ; r < this.graph.rowCount-1; r++) {
+        for (let c = 1; c < this.graph.columnCount-1; c++) {
           this.setClear(r, c);
         }
       }
@@ -357,6 +357,7 @@ class Grid {
   }
 
   visualize() {
+    this.drawborder();
     this.setRunnerNodes();
     this.resetTraversal();
     this.fixGrid();
