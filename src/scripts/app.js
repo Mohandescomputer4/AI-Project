@@ -68,34 +68,35 @@ function init() {
     states.Context.ActiveGrid.actionMode = states.TOOL_MODE[this.value];
   });
   states.randombtn.click(function(event) {
-    const grid = states.Context.ActiveGrid;
+       const grid = states.Context.ActiveGrid;
       grid.clearGrid();
-      grid.drawborder();
       const cols = grid.graph.columnCount - 1;
       const rows = grid.graph.rowCount - 1;
-      for (let i = 0; i < 16; i++) {
+      let sec = 0;
+      for (let i = 0; i < Math.max(rows, cols) * 2; i++) {
+        sec += 16;
         setTimeout(() => {
           let random_col = Math.round(Math.random() * cols);
           let random_row = Math.round(Math.random() * rows);
           grid.setBlock(random_row, random_col);
-        }, 100);
+        }, sec);
       }
       setTimeout(() => {
         {
-          let random_col = Math.round(Math.random() * (cols-2)) + 1;
-          let random_row = Math.round(Math.random() * (rows-2)) + 1;
-          grid.__start_node = grid.getBox(random_row, random_col)
-          grid.__start_node.setAsClear();
+          let random_col = Math.round(Math.random() * cols);
+          let random_row = Math.round(Math.random() * rows);
+          grid.__start_node = grid.getBox(random_row, random_col);
+          grid.setClear(random_row , random_col);
           grid.setStart();
         }
         {
-          let random_col = Math.round(Math.random() * (cols-2)) + 1 ;
-          let random_row = Math.round(Math.random() * (rows-2)) + 1 ;
-          grid.__end_node = grid.getBox(random_row, random_col)
-          grid.__end_node.setAsClear();
+          let random_col = Math.round(Math.random() * cols);
+          let random_row = Math.round(Math.random() * rows);
+          grid.__end_node = grid.getBox(random_row, random_col);
+          grid.setClear(random_row , random_col);
           grid.setEnd();
         }
-      }, 500);
+      }, sec);
 
   });
   states.clearGraphBtn.click(function(event) {
