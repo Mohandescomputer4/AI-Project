@@ -192,9 +192,7 @@ class Grid {
           }
           if (box.nodeType == states.BOX_TYPES.BLOCK) {
             this.setClear(r, c);
-          }// else if(/**/ ) {
-              //
-          //}
+          }
           else {
             this.setBlock(r, c);
           }
