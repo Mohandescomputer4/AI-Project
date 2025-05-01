@@ -48,6 +48,3 @@ Piscifelis offers two execution modes:
 
 ### **Performance Metrics**
 - View total **visited nodes** and **algorithm execution time (ms)** on-screen.
-
-## License
-This project is licensed under the **MIT License**, making it open-source for learners and contributors.
