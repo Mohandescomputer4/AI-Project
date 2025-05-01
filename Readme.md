@@ -36,7 +36,7 @@ Piscifelis offers two execution modes:
 
 ### **A\* Customization**
 - Choose between **Manhattan** or **Euclidean heuristics** for A* search.
-- Adjust the admissibility factor \( \varepsilon \) via **"Settings"** > **"ε admissible"**.
+- Adjust the admissibility factor (ε) via **"Settings"** > **"ε admissible"**.
 
 ### **Grid Size Customization**
 - Default settings are optimized for standard laptop screens.
